@@ -1,4 +1,5 @@
-﻿using MediCare.Domain.Entities;
+﻿
+using MediCare.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
