@@ -1,12 +1,16 @@
 using MediCare.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+// var mongoDBSettings = builder.Configuration.GetSection("MongoDBSettings").Get<MongoDBSettings>();
+// services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDBSettings"));
+// builder.Services.AddDbContext<ApplicationDbContext>( options =>
+// options.UseMongoDB(mongoDBSettings.AtlasURI ?? "", mongoDBSettings.DatabaseName ?? ""));
 
 // Add services to the container.
 builder.Services.AddKeyVaultIfConfigured(builder.Configuration);
-
+builder.Services.AddControllersWithViews();
 builder.Services.AddApplicationServices();
-builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddInfrastructureServices(builder.Configuration); 
 builder.Services.AddWebServices();
 
 var app = builder.Build();
